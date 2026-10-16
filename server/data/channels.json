@@ -1,0 +1,44 @@
+[
+  {
+    "_id": "chan_nfa",
+    "name": "News for All",
+    "logo": "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=120&h=120&fit=crop",
+    "url": "https://newsforall.com",
+    "description": "News for All — Flagship Editorial Desk"
+  },
+  {
+    "_id": "chan_bbc",
+    "name": "BBC NEWS",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/BBC_News_2019.svg/512px-BBC_News_2019.svg.png",
+    "url": "https://www.bbc.com/news",
+    "description": "BBC World Service & Global Correspondents"
+  },
+  {
+    "_id": "chan_reuters",
+    "name": "REUTERS",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Reuters_Logo.svg/512px-Reuters_Logo.svg.png",
+    "url": "https://www.reuters.com",
+    "description": "International Wire & Financial Dispatches"
+  },
+  {
+    "_id": "chan_cnn",
+    "name": "CNN NEWS",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/CNN.svg/512px-CNN.svg.png",
+    "url": "https://www.cnn.com",
+    "description": "Global Breaking Broadcasts"
+  },
+  {
+    "_id": "chan_aljazeera",
+    "name": "AL JAZEERA",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Al_Jazeera_English_logo.svg/512px-Al_Jazeera_English_logo.svg.png",
+    "url": "https://www.aljazeera.com",
+    "description": "In-Depth Global Perspectives & Documentaries"
+  },
+  {
+    "_id": "chan_abc",
+    "name": "ABC NEWS",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ABC_News_logo_2021.svg/512px-ABC_News_logo_2021.svg.png",
+    "url": "https://abcnews.go.com",
+    "description": "National & Investigative Reporting"
+  }
+]
