@@ -8,9 +8,9 @@ const router = express.Router();
 // Verify Admin Secret Passkey
 router.post('/login', (req, res) => {
   const { password } = req.body;
-  const adminSecret = process.env.ADMIN_KEY || 'admin123';
+  const adminSecret = process.env.ADMIN_KEY || 'Kuku@5769';
 
-  if (password === adminSecret || password === 'admin') {
+  if (password && password === adminSecret) {
     return res.json({ success: true, token: 'admin-authenticated-token', message: 'Welcome Admin' });
   }
   return res.status(401).json({ success: false, error: 'Invalid admin passkey' });

@@ -51,10 +51,10 @@ This folder contains everything needed to deploy the **News for All — Modern-V
    PORT=5005
    MYSQL_HOST=127.0.0.1
    MYSQL_PORT=3306
-   MYSQL_DATABASE=u123456789_newsforall
-   MYSQL_USER=u123456789_newsuser
-   MYSQL_PASSWORD=YOUR_HOSTINGER_MYSQL_PASSWORD
-   ADMIN_KEY=admin123
+   MYSQL_DATABASE=u796814945_nqpnew
+   MYSQL_USER=u796814945_nqpnew
+   MYSQL_PASSWORD=YOUR_MYSQL_PASSWORD
+   ADMIN_KEY=YOUR_SECRET_ADMIN_KEY
    ```
 
 4. **Install Dependencies & Build Frontend** (if `dist/` is not already uploaded):
@@ -75,4 +75,3 @@ npm run start
 ```
 - **Local Website & Editorial Studio**: `http://localhost:5005`
 - **Local Docker MySQL Port**: `127.0.0.1:3309` (Database: `newsforall`, User: `root`, Password: `rootpassword`)
-- **Default Editor Passkey**: `admin123`

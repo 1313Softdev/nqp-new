@@ -13,7 +13,7 @@ module.exports = {
         MYSQL_DATABASE: 'u796814945_nqpnew',
         MYSQL_USER: 'u796814945_nqpnew',
         MYSQL_PASSWORD: 'Kuku@5769',
-        ADMIN_KEY: 'admin123'
+        ADMIN_KEY: 'Kuku@5769'
       }
     }
   ]

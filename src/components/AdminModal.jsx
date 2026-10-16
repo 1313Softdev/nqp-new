@@ -271,13 +271,24 @@ export default function AdminModal() {
 
   if (!isAdminOpen) return null;
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (passkey === 'admin123' || passkey === 'admin') {
-      loginAdmin();
-      setLoginError('');
-    } else {
-      setLoginError('Invalid Passkey. Default passkey: admin123');
+    try {
+      const res = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: passkey })
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        loginAdmin();
+        setLoginError('');
+        setPasskey('');
+      } else {
+        setLoginError('Invalid Passkey. Access Denied.');
+      }
+    } catch (err) {
+      setLoginError('Authentication failed. Please try again.');
     }
   };
 
@@ -630,7 +641,7 @@ export default function AdminModal() {
                   type="password"
                   value={passkey}
                   onChange={(e) => setPasskey(e.target.value)}
-                  placeholder="Enter Admin Passkey (default: admin123)"
+                  placeholder="Enter Admin Passkey"
                   className="w-full px-4 py-3 bg-stone-50 border border-stone-300 text-sm font-mono-meta focus:outline-none focus:border-stone-900"
                 />
                 {loginError && <p className="text-xs text-red-600 font-bold mt-2 text-left">{loginError}</p>}
