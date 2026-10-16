@@ -18,10 +18,10 @@ let isMongoConnected = false;
 
 export const MYSQL_CONFIG = {
   host: process.env.MYSQL_HOST || '127.0.0.1',
-  port: parseInt(process.env.MYSQL_PORT || '3309', 10),
-  user: process.env.MYSQL_USER || 'root',
-  password: process.env.MYSQL_PASSWORD || 'rootpassword',
-  database: process.env.MYSQL_DATABASE || 'newsforall',
+  port: parseInt(process.env.MYSQL_PORT || '3306', 10),
+  user: process.env.MYSQL_USER || 'u796814945_nqpnew',
+  password: process.env.MYSQL_PASSWORD || 'Kuku@5769',
+  database: process.env.MYSQL_DATABASE || 'u796814945_nqpnew',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
@@ -108,18 +108,22 @@ export const initMySQLTables = async (pool) => {
 
 export const tryConnectMySQL = async () => {
   try {
-    // First connect without database to ensure database exists
-    const bootstrapConn = await mysql.createConnection({
-      host: MYSQL_CONFIG.host,
-      port: MYSQL_CONFIG.port,
-      user: MYSQL_CONFIG.user,
-      password: MYSQL_CONFIG.password,
-      connectTimeout: 4000
-    });
-    await bootstrapConn.query(
-      `CREATE DATABASE IF NOT EXISTS \`${MYSQL_CONFIG.database}\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;`
-    );
-    await bootstrapConn.end();
+    // Attempt optional database creation if user has privilege (e.g. Docker root), ignore on shared Hostinger
+    try {
+      const bootstrapConn = await mysql.createConnection({
+        host: MYSQL_CONFIG.host,
+        port: MYSQL_CONFIG.port,
+        user: MYSQL_CONFIG.user,
+        password: MYSQL_CONFIG.password,
+        connectTimeout: 4000
+      });
+      await bootstrapConn.query(
+        `CREATE DATABASE IF NOT EXISTS \`${MYSQL_CONFIG.database}\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;`
+      );
+      await bootstrapConn.end();
+    } catch (e) {
+      // On Hostinger shared MySQL, the database is pre-created in hPanel
+    }
 
     mysqlPool = mysql.createPool(MYSQL_CONFIG);
     await mysqlPool.query('SELECT 1');
